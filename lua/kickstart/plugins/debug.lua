@@ -67,24 +67,7 @@ return {
       },
     }
 
-    -- Dap UI setup
-    -- For more information, see |:help nvim-dap-ui|
-    dapui.setup(vim.g.have_nerd_font and {} or {
-      icons = { expanded = '▾', collapsed = '▸', current_frame = '*' },
-      controls = {
-        icons = {
-          pause = '⏸',
-          play = '▶',
-          step_into = '⏎',
-          step_over = '⏭',
-          step_out = '⏮',
-          step_back = 'b',
-          run_last = '▶▶',
-          terminate = '⏹',
-          disconnect = '⏏',
-        },
-      },
-    })
+    dapui.setup()
 
     dap.listeners.after.event_initialized['dapui_config'] = dapui.open
     dap.listeners.before.event_terminated['dapui_config'] = dapui.close
