@@ -3,9 +3,16 @@
 -- config. This will add also the recommended keymaps.
 
 return {
-  {
-    'lewis6991/gitsigns.nvim',
-    opts = {
+  'lewis6991/gitsigns.nvim',
+  config = function()
+    require('gitsigns').setup {
+      signs = {
+        add = { text = '+' },
+        change = { text = '~' },
+        delete = { text = '_' },
+        topdelete = { text = '‾' },
+        changedelete = { text = '~' },
+      },
       on_attach = function(bufnr)
         local gitsigns = require 'gitsigns'
 
@@ -56,6 +63,6 @@ return {
         map('n', '<leader>tb', gitsigns.toggle_current_line_blame, { desc = '[T]oggle git show [b]lame line' })
         map('n', '<leader>tD', gitsigns.toggle_deleted, { desc = '[T]oggle git show [D]eleted' })
       end,
-    },
-  },
+    }
+  end,
 }

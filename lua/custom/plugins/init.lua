@@ -4,15 +4,9 @@
 -- See the kickstart.nvim README for more information
 return {
   {
-    'ThePrimeagen/harpoon',
+    'giorgileladze/nested-code.nvim',
     config = function()
-      vim.keymap.set('n', '<leader>e', function()
-        require('harpoon.ui').toggle_quick_menu()
-      end, { desc = 'Toggle harpoon menu' })
-
-      vim.keymap.set('n', '<leader>a', function()
-        require('harpoon.mark').add_file()
-      end, { desc = 'Add file to harpoon' })
+      require 'nested-code'
     end,
   },
 }
